@@ -64,11 +64,20 @@ export class SliderComponent implements OnInit {
   }
 
   sizeSquareChanged(sizeSquare) {
-    const elements = this.elem.nativeElement.querySelectorAll('.square');
-    elements.forEach((element) => {
-      element.style.flex = `1 0 ${sizeSquare}px`;
-      element.style.height = `${sizeSquare}px`;
-    });
+    if (sizeSquare <= 170) {
+      const elements = this.elem.nativeElement.querySelectorAll('.square');
+      elements.forEach((element) => {
+        element.style.flex = `0 0 ${sizeSquare}px`;
+        element.style.height = `${sizeSquare}px`;
+      });
+    } else {
+      sizeSquare = 170;
+      const elements = this.elem.nativeElement.querySelectorAll('.square');
+      elements.forEach((element) => {
+        element.style.flex = `0 0 ${sizeSquare}px`;
+        element.style.height = `${sizeSquare}px`;
+      });
+    }
   }
 
   bordRadChanged(bordRad) {
