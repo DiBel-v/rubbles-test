@@ -1,0 +1,33 @@
+<div [ngClass]="'main'">
+  <div [ngClass]="'slider'">
+    <ng-container *ngIf="data?.length">
+      <ng-container *ngFor="let item of data; let i = index">
+        <div [ngClass]="'square'" *ngIf="i < counter" [ngStyle]="{'transform': for, 'opacity': 1-i*0.2}">
+          <img [ngClass]="'image-sqr'" src="{{item.urls.full}}" alt="photo">
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div [ngClass]="'form-control'">
+    <div [ngClass]="'inputs-form'">
+      <input [ngClass]="'inp size-form'" type="number" min="0" max="180" placeholder="Size" [(ngModel)]="sizeSquare"
+        (ngModelChange)="sizeSquareChanged(sizeSquare)">
+      <div [ngClass]="'corner-form'">
+        <div [ngClass]="'corner-inp'">
+          <input [ngClass]="'inp'" [(ngModel)]="bordRad" (ngModelChange)="bordRadChanged(bordRad)" type="number" min="0"
+            placeholder="Corner radius">
+        </div>
+        <div [ngClass]="'corner-px'">
+          <input [ngClass]="'inp'" type="text" placeholder="px" disabled>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="'button-control'">
+      <button [ngClass]="'btn add-square'" (click)="addSquare()">ADD SQUARE</button>
+      <div [ngClass]="'prev-next'">
+        <button [ngClass]="'btn previous'" (click)="previousSquare()">PREV</button>
+        <button [ngClass]="'btn next'" (click)="nextSquare()">NEXT</button>
+      </div>
+    </div>
+  </div>
+</div>
